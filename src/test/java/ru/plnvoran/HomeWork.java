@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class HomeWork extends TestBase {
+public class HomeWork  {
 
     @Test
-    void differenceСheck() {
+    public void differenceCheckTest() {
 
         open("https://qatest76.ucoz.net/index/dz_1/0-6");
 
@@ -30,14 +30,13 @@ public class HomeWork extends TestBase {
     }
 
     @Test
-    void checkThatPageHasSpecialCode() {
+    public void checkThatPageHasSpecialCodeTest() {
 
         open("https://github.com/selenide/selenide");
         $("#repository-container-header a").shouldHave(text("selenide"));
 
         $("#wiki-tab").click();
         $("#wiki-body h1").shouldHave(text("Welcome to the selenide wiki!"));
-        $("#wiki-pages-box").$("button:contains('Show 2 more pages')");
         $("#wiki-pages-box").$("button").click();
 
         $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
