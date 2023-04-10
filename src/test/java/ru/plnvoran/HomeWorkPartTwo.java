@@ -3,7 +3,7 @@ package ru.plnvoran;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomeWorkPartTwo {
@@ -13,11 +13,8 @@ public class HomeWorkPartTwo {
 
         open("https://github.com");
 
-        $(".header-menu-wrapper").shouldBe(visible);
-        $(".header-menu-wrapper li:nth-of-type(2)>button").shouldHave(text("Solutions")).hover();
-
-        $$(".HeaderMenu-dropdown>ul:nth-of-type(1)").findBy(text("For")).shouldBe(visible);
-        $$(".HeaderMenu-dropdown-link").findBy(text("Enterprise")).click();
+        $(".Header-old").$(byText("Solutions")).click();
+        $(".border-bottom").$(byText("Enterprise")).click();
         $(".h1-mktg").shouldHave(text("Build like the best"));
 
     }
